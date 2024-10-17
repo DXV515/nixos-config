@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python-2.7.18.8" "electron-25.9.0"];
-  };
+     };
 
   environment.systemPackages = with pkgs; [
     # Desktop apps
@@ -27,8 +26,10 @@
     gcc
     nodejs
     python
-    (python3.withPackages (ps: with ps; [ requests ]))
-
+    helix
+    go
+    docker
+    docker-compose    
     # CLI utils
     neofetch
     file
@@ -89,10 +90,9 @@
     pamixer
 
     # GPU stuff 
-    amdvlk
-    rocm-opencl-icd
-    glaxnimate
-
+    mesa
+    intel-video-driver
+    vpl-gpu-rt
     # Screenshotting
     grim
     grimblast
